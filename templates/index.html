@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictive Maintenance System - Senim Solutions LLP</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-cogs"></i>
+                <span class="company-name">Senim Solutions LLP</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                <a href="/info" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <i class="fas fa-robot"></i>
+                Predictive Maintenance System
+            </h1>
+            <p class="hero-subtitle">Advanced AI-powered machine maintenance predictions for optimal performance</p>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="prediction-card">
+            <div class="card-header">
+                <h2><i class="fas fa-chart-line"></i> Machine Health Analysis</h2>
+                <p>Enter your machine parameters below for real-time maintenance prediction</p>
+            </div>
+            
+            <form action="/predict" method="POST" class="prediction-form">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="feature_1">
+                            <i class="fas fa-thermometer-half"></i>
+                            Air Temperature
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.01" id="feature_1" name="feature_1" placeholder="298.1" required>
+                            <span class="unit">K</span>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="feature_2">
+                            <i class="fas fa-fire"></i>
+                            Process Temperature
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.01" id="feature_2" name="feature_2" placeholder="308.6" required>
+                            <span class="unit">K</span>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="feature_3">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Rotational Speed
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.01" id="feature_3" name="feature_3" placeholder="1551" required>
+                            <span class="unit">RPM</span>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="feature_4">
+                            <i class="fas fa-wrench"></i>
+                            Torque
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" step="0.01" id="feature_4" name="feature_4" placeholder="42.8" required>
+                            <span class="unit">Nm</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="predict-btn">
+                    <i class="fas fa-brain"></i>
+                    Analyze & Predict
+                    <span class="btn-glow"></span>
+                </button>
+            </form>
+        </div>
+        
+        <div class="features-section">
+            <h3><i class="fas fa-star"></i> Why Choose Our System?</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-accuracy"></i>
+                    </div>
+                    <h4>97% Accuracy</h4>
+                    <p>Optimized with Crayfish Algorithm for maximum precision</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>Real-time Analysis</h4>
+                    <p>Instant predictions for immediate maintenance decisions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Prevent Downtime</h4>
+                    <p>Proactive maintenance to avoid costly machine failures</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-cogs"></i>
+                <span>Senim Solutions LLP</span>
+            </div>
+            <p>© 2025 Senim Solutions LLP. All rights reserved. | Powered by Advanced AI & Machine Learning</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth animations and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading state to predict button
+            const form = document.querySelector('.prediction-form');
+            const button = document.querySelector('.predict-btn');
+            
+            form.addEventListener('submit', function() {
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyzing...';
+                button.disabled = true;
+            });
+            
+            // Add input focus animations
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.parentElement.classList.add('focused');
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.parentElement.parentElement.classList.remove('focused');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
